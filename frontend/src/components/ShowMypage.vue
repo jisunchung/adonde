@@ -184,7 +184,7 @@ export default {
     },
     watch:{
         userStoredCities :function(){
-            this.getStoredCitiesDetail()
+            this.getStoredCitiesDetail() 
         }
     }
     
