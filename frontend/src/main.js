@@ -24,7 +24,7 @@ Vue.component('VueSlider', VueSlider)
 
 Vue.config.productionTip = false
 
-const apiKey = '0b3e12f49e69284bc5e44c27065a9f7b'
+const apiKey = '75fadd5808d741eea9e1e3900de5a7a3'
 
 window.Kakao.init(apiKey)
 
