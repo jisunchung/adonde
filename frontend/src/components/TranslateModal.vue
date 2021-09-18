@@ -52,37 +52,38 @@ export default {
     return{
       countries: [
         {
-          code: 'ko|zh-CN',
-          title: 'Chinese (Simplified)',
-        },
-        {
           code: 'ko|en',
           title: 'English',
-        },
-        {
-          code: 'ko|ja',
-          title: 'Japanese',
         },
         {
           code: 'ko|ko',
           title: 'Korean',
         },
         {
-          code: 'en|ru',
-          title: 'Russian',
-        },
-        {
           code: 'en|es',
           title: 'Spanish',
         },
         {
-          code: 'en|sv',
-          title: 'Swedish',
+          code: 'ko|zh-CN',
+          title: 'Chinese (Simplified)',
         },
         {
-          code: 'en|th',
-          title: 'Thai',
+          code: 'en|ar',
+          title: 'Arabic',
         },
+        {
+          code: 'en|de',
+          title: 'German',
+        },
+        {
+          code: 'en|fr',
+          title: 'French',
+        },
+        {
+          code: 'en|ru',
+          title: 'Russian',
+        },
+        
       ]
     }
   }
