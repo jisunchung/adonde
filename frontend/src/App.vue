@@ -64,22 +64,7 @@
         <v-divider />      
         </v-list>
    
-        <div style="position: absolute; bottom: 0">
-          <v-list-item
-            v-for="(icon, idx) in iconItems"
-            :key="idx">
-            <v-btn
-                :href="icon.link"
-                class="mx-4"
-                icon
-              >
-              <v-icon  
-                size="24px">
-                {{ icon.icon }}
-              </v-icon>
-            </v-btn>
-          </v-list-item>
-        </div>  
+       
       </div>
         
     </v-navigation-drawer>
@@ -378,20 +363,6 @@ export default {
         
       ],
     right: null,
-    iconItems: [
-        {
-          link : "https://www.linkedin.com/in/jangwoopark/",
-          icon : 'mdi-linkedin'
-        },
-        {
-          link : "https://www.instagram.com/adonde.kr/",
-          icon :'mdi-instagram'
-        },
-        {
-          link : "https://github.com/forrestpark/adonde.kr",
-          icon :'mdi-github'
-        },
-      ],
   }), 
   methods:{
     //drawer에 있는 로그인 관련 버튼을 눌렀을 경우 해당하는 경우에 따라서 다르게 처리해줌
