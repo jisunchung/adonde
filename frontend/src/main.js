@@ -9,10 +9,17 @@ import VueSlider from 'vue-slider-component'
 import 'vue-slider-component/theme/default.css'
 import VueCascaderSelect from 'vue-cascader-select';
 import VueConfetti from 'vue-confetti';
-
-Vue.use(VueConfetti);
-
 import VGoogleTranslate from "v-google-translate";
+import * as VueGoogleMaps from 'vue2-google-maps'
+import VueGeolocation from 'vue-browser-geolocation';
+Vue.use(VueGeolocation);
+ 
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyBw4p75RbUNxOTRp97PsbKKMfHk3kisBhw',
+    }
+})
+Vue.use(VueConfetti);
 Vue.config.productionTip = false;
 Vue.use(VGoogleTranslate)
 

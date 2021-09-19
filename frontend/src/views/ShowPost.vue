@@ -128,16 +128,129 @@
                 </v-card>
             </v-col>
             <v-col>
-                <v-img 
-                style="margin: auto"
-                alt="map"
-                contain
-                :src="require(`@/assets/map.jpeg`)"
-                width="700"
-                />
+                <!-- <GmapMap
+    :center="{lat:10, lng:10}"
+  :zoom="7"
+  map-type-id="terrain"
+  style="width: 500px; height: 300px"
+/> -->
+  <!-- <GmapMarker
+    :key="index"
+    v-for="(m, index) in markers"
+    :position="m.position"
+    :clickable="true"
+    :draggable="true"
+    @click="center=m.position"
+  /> -->
+<div>
+                <h1>Your coordinates:</h1>
+                <p>{{ myCoordinates.lat }} Latitude, {{ myCoordinates.lng }} Longitude</p>
+            </div>
+            <div>
+                <h1>Map coordinates:</h1>
+                <p>{{ mapCoordinates.lat }} Latitude, {{ mapCoordinates.lng }} Longitude</p>
+            </div>
+    
+        <GmapMap
+            :center="myCoordinates"
+            :zoom="zoom"
+            style="width:640px; height:360px; margin: 32px auto;"
+            ref="mapRef"
+            @dragend="handleDrag"
+        ><GmapMarker
+    :key="index"
+    v-for="(m, index) in markers"
+    :position="m.position"
+    :clickable="true"
+    :draggable="true"
+    @click="center=m.position"
+  /></GmapMap>
             </v-col>
         </v-row>
 
        </v-app>
 </template>
+
+<script>
+export default {
+     data() {
+            return {
+                map: null,
+                myCoordinates: {
+                    lat: 0,
+                    lng: 0
+                },
+                zoom: 7,
+                markers:[
+                {position: {lat: 35.15757684070402, lng: 129.12095533979314}}
+                ,{position: {lat: 35.17046676539149, lng: 129.13899862629918}},
+                {position: {lat: 35.15692152701457, lng: 129.1791026667814}},
+                {position: {lat: 35.160107059509265,lng: 129.17081241393657}}
+                    ]
+            }
+        },
+        created() {
+            // does the user have a saved center? use it instead of the default
+            if(localStorage.center) {
+                this.myCoordinates = JSON.parse(localStorage.center);
+            } else {
+                // get user's coordinates from browser request
+                this.$getLocation({})
+                    .then(coordinates => {
+                        this.myCoordinates = coordinates;
+                    })
+                    .catch(error => alert(error));
+            }
+            // does the user have a saved zoom? use it instead of the default
+            if(localStorage.zoom) {
+                this.zoom = parseInt(localStorage.zoom);
+            }
+        },
+    mounted(){
+         //window.kakao && window.kakao.maps ? this.initMap() : this.addScript();
+        this.$refs.mapRef.$mapPromise.then(map => this.map = map);
+    },
+    methods:{
+       handleDrag() {
+                // get center and zoom level, store in localstorage
+                let center = {
+                    lat: this.map.getCenter().lat(),
+                    lng: this.map.getCenter().lng()
+                };
+                let zoom = this.map.getZoom();
+                localStorage.center = JSON.stringify(center);
+                localStorage.zoom = zoom;
+            },
+        // async initMap() { 
+        //     var container = document.getElementById('map'); 
+        //     var options = { center: new kakao.maps.LatLng(this.latitude, this.longitude), level: 10 };
+        //     var map = new kakao.maps.Map(container, options); 
+        //     //마커추가하려면 객체를 아래와 같이 하나 만든다. 
+        //     var marker = new kakao.maps.Marker({ position: map.getCenter() }); 
+        //     await marker.setMap(map); 
+        // },  
+        // addScript() { 
+        //     const script = document.createElement('script'); 
+        //     /* global kakao */ 
+        //     script.onload = () => kakao.maps.load(this.initMap); 
+        //     // script.src = 'http://dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=0b3e12f49e69284bc5e44c27065a9f7b'; 
+        //     document.head.appendChild(script); 
+        // },
+    },
+    computed: {
+            mapCoordinates() {
+                if(!this.map) {
+                    return {
+                        lat: 0,
+                        lng: 0
+                    };
+                }
+                return {
+                    lat: this.map.getCenter().lat().toFixed(4),
+                    lng: this.map.getCenter().lng().toFixed(4)
+                }
+            }
+        }
+}
+</script>
 
