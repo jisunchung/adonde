@@ -112,47 +112,47 @@
                     <v-card>
                         <!-- <v-card-text><div v-for="user in AllUser" :key="user.id">{{user.nickname}}   
                             </div></v-card-text> -->
-                        <v-row dense>
-        <v-col
-          v-for="user in AllUser"
-          :key="user.id"
-        >
-          <v-card @click="ShowPost">
-               <v-list-item three-line>
-      <v-list-item-content>
-        <div class="text-overline mb-4">
-          <v-avatar
-              color="brown"
-              size="30"
-            >
-              <v-icon>mdi-account</v-icon>
-            </v-avatar>{{user.nickname}}
-        </div>
-        <v-list-item-title class="text-h5 mb-1">
-          Headline 
-        </v-list-item-title>
-        <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
-      </v-list-item-content>
+                    <v-row dense>
+                    <v-col
+                    v-for="user in AllUser"
+                    :key="user.id"
+                    >
+                    <v-card @click="ShowPost">
+                        <v-list-item three-line>
+                <v-list-item-content>
+                    <div class="text-overline mb-4">
+                    <v-avatar
+                        color="brown"
+                        size="30"
+                        >
+                        <v-icon>mdi-account</v-icon>
+                        </v-avatar>{{user.nickname}}
+                    </div>
+                    <v-list-item-title class="text-h5 mb-1">
+                    Headline 
+                    </v-list-item-title>
+                    <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
+                </v-list-item-content>
 
-      <v-list-item-avatar
-        tile
-        size="80"
-        color="grey"
-      ></v-list-item-avatar>
-    </v-list-item>
+                <v-list-item-avatar
+                    tile
+                    size="80"
+                    color="grey"
+                ></v-list-item-avatar>
+                </v-list-item>
 
-            <v-card-actions>
-              <v-spacer></v-spacer>
+                        <v-card-actions>
+                        <v-spacer></v-spacer>
 
-      
-                <v-icon>mdi-heart</v-icon>{{user.id}}
-          
+                
+                            <v-icon>mdi-heart</v-icon>{{user.id}}
+                    
 
-           
-            </v-card-actions>
-          </v-card>
-        </v-col>
-      </v-row>
+                    
+                        </v-card-actions>
+                    </v-card>
+                    </v-col>
+                     </v-row>
                     </v-card> 
                    
                 </v-col>
