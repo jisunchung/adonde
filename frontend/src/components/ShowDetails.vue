@@ -117,7 +117,7 @@
           v-for="user in AllUser"
           :key="user.id"
         >
-          <v-card>
+          <v-card @click="ShowPost">
                <v-list-item three-line>
       <v-list-item-content>
         <div class="text-overline mb-4">
@@ -144,17 +144,11 @@
             <v-card-actions>
               <v-spacer></v-spacer>
 
-              <v-btn icon>
+      
                 <v-icon>mdi-heart</v-icon>{{user.id}}
-              </v-btn>
+          
 
-              <v-btn icon>
-                <v-icon>mdi-bookmark</v-icon>
-              </v-btn>
-
-              <v-btn icon>
-                <v-icon>mdi-share-variant</v-icon>
-              </v-btn>
+           
             </v-card-actions>
           </v-card>
         </v-col>
@@ -303,6 +297,9 @@ export default {
                 console.log(err)
             }
         },
+        ShowPost(){
+            this.$router.push({path:'/showpost'})
+        }
     }
 }
 </script>

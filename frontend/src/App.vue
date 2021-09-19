@@ -279,11 +279,29 @@ export default {
         this.showAppBar = false
         this.showNavDrawer=false
       }
+      if (this.$route.name == 'showpost'){
+        // this.overlay = false
+        // this.invisibleSideBar = true
+
+        //새로넣어줌
+        this.showNavDrawer = false
+        this.drawer = true
+        
+      }
     }
   },
   mounted(){
       //상세페이지로 갔을 경우 overlay가 보이지 않도록 파일이 시작될때 확인해주고, sidebar 숨김
       if (this.$route.name == 'details'){
+        // this.overlay = false
+        // this.invisibleSideBar = true
+
+        //새로넣어줌
+        this.showNavDrawer = false
+        this.drawer = true
+        
+      }
+      if (this.$route.name == 'showpost'){
         // this.overlay = false
         // this.invisibleSideBar = true
 

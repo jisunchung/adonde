@@ -5,6 +5,7 @@ import Mypage from '@/views/Mypage.vue'
 import Intro from '@/views/Intro.vue'
 import Details from '@/views/Details.vue'
 import Loading from '@/views/Loading.vue'
+import ShowPost from '@/views/ShowPost.vue'
 
 Vue.use(Router)
 
@@ -35,7 +36,12 @@ const routes = [
       name: 'loading',
       path: '/loading',
       component: Loading
-    }
+    },
+    {
+      name: 'showpost',
+      path: '/showpost',
+      component: ShowPost
+    },
 ]
 
 export default new Router({
