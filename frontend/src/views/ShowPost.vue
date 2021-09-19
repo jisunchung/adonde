@@ -152,7 +152,7 @@
             </div>
     
         <GmapMap
-            :center="myCoordinates"
+            :center="{lat:35.1597, lng: 129.1643}"
             :zoom="zoom"
             style="width:640px; height:360px; margin: 32px auto;"
             ref="mapRef"
