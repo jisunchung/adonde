@@ -103,8 +103,18 @@
                     </v-row> 
                     </v-card-text>
 
-                    </v-card>
-                    
+                    </v-card>  
+                    <div style="padding: 50px">
+                      <v-btn
+      class="white--text"
+      color="teal"
+      @click="addPost"
+    >
+      Post
+    </v-btn>
+
+
+                    </div>
                 </v-col>
            
                 <v-col>     
@@ -193,8 +203,18 @@ export default {
                       "제주특별자치도": "제주도", "제주": "제주도"},
             sido_sgg_title:'',
             population:'',
-            AllUser:''
-                      
+            AllUser:'',
+            overlay: true,
+             workExperiences: [
+      {
+        Name: "Foxconn",
+        Address: "Engineer",
+        image: null,
+        url:null
+      }
+    ],
+    url: null,
+      image: null,
         }
     },
     methods:{
@@ -299,7 +319,27 @@ export default {
         },
         ShowPost(){
             this.$router.push({path:'/showpost'})
-        }
+        },
+        addExperience () {
+      this.workExperiences.push({
+        company: '',
+        title: ''
+      })
+    },
+    addPost(){
+        this.$router.push({path:'/addform'})
+        
+    },
+    submit () {
+      const data = {
+        workExperiences: this.workExperiences
+      }
+      alert(JSON.stringify(data, null, 2))
+    },
+    Preview_image(i) {
+      this.workExperiences[i].url= URL.createObjectURL(this.workExperiences[i].image)
+    }
+  
     }
 }
 </script>

@@ -6,6 +6,7 @@ import Intro from '@/views/Intro.vue'
 import Details from '@/views/Details.vue'
 import Loading from '@/views/Loading.vue'
 import ShowPost from '@/views/ShowPost.vue'
+import AddForm from '@/views/AddForm.vue'
 
 Vue.use(Router)
 
@@ -41,6 +42,11 @@ const routes = [
       name: 'showpost',
       path: '/showpost',
       component: ShowPost
+    },
+    {
+      name: 'addform',
+      path: '/addform',
+      component: AddForm
     },
 ]
 

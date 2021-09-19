@@ -282,6 +282,14 @@ export default {
         this.drawer = true
         
       }
+      if(this.$route.name == 'addform'){
+        // this.invisibleSideBar = false
+        // this.invisibleBar = false
+
+        //새로넣어줌
+        this.showNavDrawer = false
+        this.drawer = true
+      }
     }
   },
   mounted(){
@@ -303,6 +311,14 @@ export default {
         this.showNavDrawer = false
         this.drawer = true
         
+      }
+      if(this.$route.name == 'addform'){
+        // this.invisibleSideBar = false
+        // this.invisibleBar = false
+
+        //새로넣어줌
+        this.showNavDrawer = false
+        this.drawer = true
       }
       if(this.$route.name == 'intro'){ 
         // this.invisibleSideBar = true
