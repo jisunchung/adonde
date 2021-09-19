@@ -76,10 +76,10 @@ export default {
     },
 
     submit () {
-      const data = {
-        workExperiences: this.workExperiences
-      }
-      alert(JSON.stringify(data, null, 2))
+    //   const data = {
+    //     workExperiences: this.workExperiences
+    //   }
+      //alert(JSON.stringify(data, null, 2))
 history.back()
 
     },
