@@ -8,6 +8,9 @@ import store from './store'
 import VueSlider from 'vue-slider-component'
 import 'vue-slider-component/theme/default.css'
 import VueCascaderSelect from 'vue-cascader-select';
+import VueConfetti from 'vue-confetti';
+
+Vue.use(VueConfetti);
 
 import VGoogleTranslate from "v-google-translate";
 Vue.config.productionTip = false;

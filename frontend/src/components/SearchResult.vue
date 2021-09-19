@@ -119,6 +119,11 @@ export default {
             this.updateSearchResults([this.filteredResult[randNum]])
             this.updateIsSetMarker(true)
 
+             this.$confetti.start();
+                setTimeout(()=> {
+                    this.$confetti.stop();
+            }, 3000);
+
             this.$nextTick(() => {
                 window.scrollTo(0, document.body.scrollHeight)
             })
