@@ -22,6 +22,7 @@
 <script>
 import axios from 'axios'
 import {BASE_URL} from '@/api.js'
+import { mapMutations} from 'vuex'
 export default {
     data(){
         return{
@@ -34,6 +35,9 @@ export default {
         this.show = true
     },
     methods:{
+        ...mapMutations([
+            'updateUser'
+        ]),
         async loginRedirect(){
             try{
             const user = await axios.post(
@@ -44,6 +48,7 @@ export default {
                 
                 console.log("user:", JSON.stringify(user.data))
                 sessionStorage.setItem('user', JSON.stringify(user.data))
+                this.updateUser(user.data)
                 setTimeout(() => {
                     this.$router.push({path: '/'})
                 }, 2000)
