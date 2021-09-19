@@ -12,6 +12,7 @@
     "@vue/cli": "^4.5.13",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "lodash": "^4.17.21",
     "v-google-translate": "^0.1.10",
     "vue": "^2.6.11",
     "vue-browser-geolocation": "^1.8.0",
