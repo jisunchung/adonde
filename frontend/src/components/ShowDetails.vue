@@ -107,7 +107,7 @@
                     <div style="padding: 50px">
                       <v-btn
                         fab
-                        large
+                        x-large
                         class="white--text"
                         color="teal"
                         @click="addPost"
@@ -205,11 +205,11 @@ export default {
                       "제주특별자치도": "제주도", "제주": "제주도"},
             sido_sgg_title:'',
             population:'',
-            AllUser:[{id: 3, nickname: '정지선', name: '부산 맛집 코스', address: '부산 수영구 민락로33번길 17'},
-            {id: 17, nickname: '우승연', name: '부산 놀거리 코스', address: '부산 해운대구 해운대로383번길 23'},
-            {id: 6, nickname: '박장우', name: '부산 1박 2일 여행 코스', address: '부산 해운대구 달맞이길65번길 167'}
-            ,{id: 14, nickname: '최서연', name: '부산 유명 빵집 코스', address: '부산 해운대구 청사포로 116 청사포정거장'},
-            {id: 21, nickname: '윤지호', name: '부산 한달 여행 코스', address: '부산 동구 중앙대로 533번길 4'}],
+            AllUser:[{id: 261, nickname: '윤소림', name: '부산 맛집 코스', address: '부산 수영구 민락로33번길 17'},
+            {id: 200, nickname: '우승연', name: '부산 놀거리 코스', address: '부산 해운대구 해운대로383번길 23'},
+            {id: 146, nickname: '박장우', name: '부산 1박 2일 여행 코스', address: '부산 해운대구 달맞이길65번길 167'}
+            ,{id: 89, nickname: '최서연', name: '부산 유명 빵집 코스', address: '부산 해운대구 청사포로 116 청사포정거장'},
+            {id: 13, nickname: '윤지호', name: '부산 한달 여행 코스', address: '부산 동구 중앙대로 533번길 4'}],
             overlay: true,
              workExperiences: [
       {
