@@ -32,7 +32,7 @@
       </div>
 
       <div class="form-group">
-        <v-btn @click="addExperience" type="button" class="btn btn-secondary">Add experience</v-btn>
+        <v-btn @click="addExperience" type="button" class="btn btn-secondary">Add form</v-btn>
       </div>
       <br>
 
