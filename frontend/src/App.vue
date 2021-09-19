@@ -90,13 +90,7 @@
             transition="scale-transition"
             width="50"
             /> 
-            <v-img 
-            alt="maru"
-            contain
-            :src="require(`./assets/003.png`)"
-            transition="scale-transition"
-            width="100"
-            /> 
+           
           </div>
         </v-toolbar-title>
       </router-link>
