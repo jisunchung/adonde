@@ -277,6 +277,121 @@
             </v-expansion-panel-content>
           </v-expansion-panel>
 
+           <!-- 여행비용 필터 -->
+          <v-expansion-panel>
+            <v-expansion-panel-header>
+              <template v-slot:default="{ open }">
+                <v-row no-gutters>
+                  <v-col cols="4">
+                    <v-icon>mdi-briefcase</v-icon>
+                    여행 비용
+                  </v-col>
+                  <v-col
+                    cols="8"
+                    class="text--secondary"
+                  >
+                  <v-fade-transition leave-absolute>
+                  <span
+                    v-if="open"
+                    key="0"
+                  >
+                    여행 비용을 선택해주세요!
+                  </span>
+                  <span
+                    v-else
+                    key="1"
+                  >
+                    <div v-if="distance != '' ">
+                        {{money}} $(USD)
+                    </div>
+                    
+                  </span>
+                  </v-fade-transition>
+                  </v-col>
+                </v-row>
+              </template>
+            </v-expansion-panel-header>
+            <v-expansion-panel-content>
+              <v-flex>
+                  <v-slider
+                    :disabled="disabled"
+                    v-model="money"
+                    step="10"
+                    min="0"
+                    max="300"
+                    thumb-label
+                    ticks
+                  ></v-slider>
+              </v-flex>
+              <div>
+                  {{money}} $(USD)
+                  <v-btn 
+                  fab
+                  small
+                  :disabled="disabled"
+                  @click="moneyTozero"
+                  style="float: right;">
+                  <v-icon>mdi-pencil-remove-outline</v-icon>
+                </v-btn>
+              </div>
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+
+       <!--혼잡도 필터-->
+          <v-expansion-panel>
+            <v-expansion-panel-header>
+              <template v-slot:default="{ open }">
+                <v-row no-gutters>
+                  <v-col cols="4">
+                    <v-icon>mdi-account-multiple</v-icon>
+                    혼잡도
+                  </v-col>
+                  <v-col
+                    cols="8"
+                    class="text--secondary"
+                  >
+                    <v-fade-transition leave-absolute>
+                      <span
+                        v-if="open"
+                        key="0"
+                      >
+                        혼잡도를 선택해주세요! 
+                      </span>
+                      <span
+                        v-else
+                        key="1"
+                      >
+                      {{congestion}}
+                      </span>
+                    </v-fade-transition>
+                  </v-col>
+                </v-row>
+              </template>
+            </v-expansion-panel-header>
+
+            <v-expansion-panel-content>
+              <v-flex>
+                <v-combobox
+                :disabled="disabled"
+                  v-model="congestion"
+                  :items="['혼잡','보통','여유']"
+                  chips
+                ></v-combobox>
+              </v-flex>
+              <v-btn 
+                  fab
+                  small
+                  :disabled="disabled"
+                  @click="congestionToZero"
+                  style="float: right;">
+                  <v-icon>mdi-pencil-remove-outline</v-icon>
+                </v-btn>
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+
+         
+
+
         </v-expansion-panels>
       </v-flex>
       <br>
@@ -388,7 +503,8 @@ export default {
         //최종결과값
         finalValue:{}
         //submit_btn_click
-        
+        ,money:'',
+        congestion:''
         }
     },
     methods: {
@@ -504,7 +620,8 @@ export default {
         this.distance='',
         this.population=[0,0],
         this.access='',
-        this.isfilterOpen = true
+        this.isfilterOpen = true,
+        this.money = ''
       },
       //인구수와 거리 slider설정시 버튼을 누르면 초기화 된다
       popuTozero(){
@@ -512,6 +629,12 @@ export default {
       },
       distanceTozero(){
           this.distance=''
+      },
+      moneyTozero(){
+        this.money=''
+      },
+      congestionToZero(){
+        this.congestion=''
       },
       //submit버튼 클릭시 출발지 선택여부를 판단하고, 데이터를 저장해줌
       initData(){

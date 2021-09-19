@@ -106,12 +106,14 @@
                     </v-card>  
                     <div style="padding: 50px">
                       <v-btn
-      class="white--text"
-      color="teal"
-      @click="addPost"
-    >
-      Post
-    </v-btn>
+                        fab
+                        large
+                        class="white--text"
+                        color="teal"
+                        @click="addPost"
+                        >
+                        Post
+                        </v-btn>
 
 
                     </div>
@@ -139,9 +141,9 @@
                         </v-avatar>{{user.nickname}}
                     </div>
                     <v-list-item-title class="text-h5 mb-1">
-                    Headline 
+                    {{user.name}}
                     </v-list-item-title>
-                    <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
+                    <v-list-item-subtitle>{{user.address}}</v-list-item-subtitle>
                 </v-list-item-content>
 
                 <v-list-item-avatar
@@ -182,7 +184,7 @@ export default {
 
         this.getPlace()
 
-        this.getUser()
+        //this.getUser()
     },
     data(){
         return{
@@ -203,7 +205,11 @@ export default {
                       "제주특별자치도": "제주도", "제주": "제주도"},
             sido_sgg_title:'',
             population:'',
-            AllUser:'',
+            AllUser:[{id: 3, nickname: '정지선', name: '부산 맛집 코스', address: '부산 수영구 민락로33번길 17'},
+            {id: 17, nickname: '우승연', name: '부산 놀거리 코스', address: '부산 수영구 민락로33번길 17'},
+            {id: 6, nickname: '박장우', name: '부산 1박 2일 여행 코스', address: '부산 수영구 민락로33번길 17'}
+            ,{id: 14, nickname: '최서연', name: '부산 유명 빵집 코스', address: '부산 수영구 민락로33번길 17'},
+            {id: 21, nickname: '윤지호', name: '부산 한달 여행 코스', address: '부산 수영구 민락로33번길 17'}],
             overlay: true,
              workExperiences: [
       {

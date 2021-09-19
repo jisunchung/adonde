@@ -142,19 +142,19 @@
     :draggable="true"
     @click="center=m.position"
   /> -->
-<div>
+<!-- <div>
                 <h1>Your coordinates:</h1>
                 <p>{{ myCoordinates.lat }} Latitude, {{ myCoordinates.lng }} Longitude</p>
             </div>
             <div>
                 <h1>Map coordinates:</h1>
                 <p>{{ mapCoordinates.lat }} Latitude, {{ mapCoordinates.lng }} Longitude</p>
-            </div>
+            </div> -->
     
         <GmapMap
             :center="{lat:35.1597, lng: 129.1643}"
             :zoom="zoom"
-            style="width:640px; height:360px; margin: 32px auto;"
+            style="width:700px; height:700px; "
             ref="mapRef"
             @dragend="handleDrag"
         ><GmapMarker
