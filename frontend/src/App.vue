@@ -90,8 +90,15 @@
             transition="scale-transition"
             width="50"
             /> 
-           
+            <v-img 
+            alt="maru"
+            contain
+            :src="require(`./assets/logogo.png`)"
+            transition="scale-transition"
+            width="170"
+            /> 
           </div>
+  
         </v-toolbar-title>
       </router-link>
         
