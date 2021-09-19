@@ -107,8 +107,60 @@
                     
                 </v-col>
            
-                <v-col>
-                    <div class="map" id="map" style="border-radius: 10px; height:1000px;" ></div>
+                <v-col>     
+                     <div class="map" id="map" style="border-radius: 10px; height:1000px;" ></div>
+                    <v-card>
+                        <!-- <v-card-text><div v-for="user in AllUser" :key="user.id">{{user.nickname}}   
+                            </div></v-card-text> -->
+                        <v-row dense>
+        <v-col
+          v-for="user in AllUser"
+          :key="user.id"
+        >
+          <v-card>
+               <v-list-item three-line>
+      <v-list-item-content>
+        <div class="text-overline mb-4">
+          <v-avatar
+              color="brown"
+              size="30"
+            >
+              <v-icon>mdi-account</v-icon>
+            </v-avatar>{{user.nickname}}
+        </div>
+        <v-list-item-title class="text-h5 mb-1">
+          Headline 5
+        </v-list-item-title>
+        <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
+      </v-list-item-content>
+
+      <v-list-item-avatar
+        tile
+        size="80"
+        color="grey"
+      ></v-list-item-avatar>
+    </v-list-item>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+
+              <v-btn icon>
+                <v-icon>mdi-heart</v-icon>{{user.id}}
+              </v-btn>
+
+              <v-btn icon>
+                <v-icon>mdi-bookmark</v-icon>
+              </v-btn>
+
+              <v-btn icon>
+                <v-icon>mdi-share-variant</v-icon>
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </v-row>
+                    </v-card> 
+                   
                 </v-col>
             </v-row>
         </v-flex>
@@ -118,7 +170,6 @@
 </template>
 
 <script>
-
 import axios from 'axios'
 import {BASE_URL} from '@/api.js'
 export default {
@@ -126,6 +177,8 @@ export default {
         this.getCityDetail()
 
         this.getPlace()
+
+        this.getUser()
     },
     data(){
         return{
@@ -145,7 +198,8 @@ export default {
                       "전북": "전라북도", "전남": "전라남도", 
                       "제주특별자치도": "제주도", "제주": "제주도"},
             sido_sgg_title:'',
-            population:''
+            population:'',
+            AllUser:''
                       
         }
     },
@@ -237,7 +291,18 @@ export default {
         },
         comma(val){
             return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-        }
+        },
+        async getUser(){
+            try{
+            const AllUser = await axios.get(
+                `${BASE_URL}/user/findAll`)
+                console.log('Alluser', AllUser.data)
+                this.AllUser = AllUser.data
+                
+            }catch(err){
+                console.log(err)
+            }
+        },
     }
 }
 </script>

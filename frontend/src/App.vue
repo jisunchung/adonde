@@ -239,7 +239,8 @@ export default {
   watch:{
     //로그인시 drawer에 login 이 logout으로 바뀌도록함
     user: function(){
-      // console.log("watch session email: ", JSON.parse(sessionStorage.getItem('user')).email )
+      console.log("computed store user: ", this.$store.state.user)
+      console.log("watch session email: ", JSON.parse(sessionStorage.getItem('user')).email )
       // if there exists user info in session storage, then we update user info in store with that
       if (JSON.parse(sessionStorage.getItem('user')) != undefined) {
         console.log("mypage disabled false")
